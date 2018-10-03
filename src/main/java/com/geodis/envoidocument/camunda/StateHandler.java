@@ -60,6 +60,9 @@ public abstract class StateHandler {
     }
 
     protected <T> T get(String key) {
+        if (!context.containsKey(key)) {
+            return null;
+        }
         return (T) context.get(key);
     }
 

@@ -14,7 +14,8 @@ public class StateEnvoiDocument extends com.geodis.isscserver.camunda.StateHandl
 
     @Override
     protected void execute(ExternalTask externalTask, ExternalTaskService externalTaskService) throws UnirestException {
-        if (!(boolean)get("est_valide")) {
+        Boolean est_valide = get("est_valide");
+        if (est_valide != null && !est_valide) {
             System.out.println("Le document n'était pas valide");
         }
 
